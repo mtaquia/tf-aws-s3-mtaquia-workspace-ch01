@@ -42,13 +42,13 @@ resource "aws_s3_bucket_versioning" "s3versioning" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "s3encryption" {
- count = var.s3-bucket-encrypt == true ? 1 : 0
+  count = var.s3-bucket-encrypt == true ? 1 : 0
 
   bucket = aws_s3_bucket.s3bucket.bucket
 
   rule {
     apply_server_side_encryption_by_default {
-      kms_master_key_id = var.s3-bucket-keyid  #aws_kms_key.mykey.arn
+      kms_master_key_id = var.s3-bucket-keyid #aws_kms_key.mykey.arn
       sse_algorithm     = "aws:kms"
       # sse_algorithm = "AES256" #valid AES256 or aws:kms
     }

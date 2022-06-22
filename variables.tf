@@ -26,15 +26,15 @@ variable "s3-bucket-allow_access_list" {
 #aws-exec-read, authenticated-read, and log-delivery-write. Defaults to private
 
 variable "s3-bucket-encrypt" {
-  type = bool
+  type        = bool
   description = "Encrypt bucket at rest"
-  default = false
+  default     = false
 }
 
 variable "s3-bucket-keyid" {
-  type = string
+  type        = string
   description = "KMS key id for encrypting S3"
-  default = null #to not require as mandatory 
+  default     = null #to not require as mandatory 
 }
 
 # locals {
